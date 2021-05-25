@@ -10,3 +10,9 @@
 - 關注點分離
   - HTML, JS 分離
   - 資料與方法分離
+
+## 第二週 - RESTful API 串接
+[RESTful API](https://ashley-yu.github.io/LiveCourse2021/week02/dist/index.html)
+- Axios / 非同步
+- Promise
+- this
