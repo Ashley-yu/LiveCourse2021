@@ -1,0 +1,51 @@
+.container.p-4.bg-white.rounded
+  form.rounded.border.border-3.border-light.p-3.bg-light.newProduct
+    .mb-3.row
+      .col-12.col-md-4.mb-3.mb-md-0
+        label.form-label(for="title") 產品名稱
+        input#title.form-control.shadow-none(
+          type="text",
+          placeholder="名稱...",
+          required
+        )
+      .col-12.col-md-3.mb-3.mb-md-0
+        label.form-label(for="originPrice", min="0") 原價
+        input#originPrice.form-control.shadow-none(
+          type="number",
+          placeholder="100...",
+          required
+        )
+      .col-12.col-md-3.mb-3.mb-md-0
+        label.form-label(for="price", min="0") 售價
+        input#price.form-control.shadow-none(
+          type="number",
+          placeholder="100...",
+          required
+        )
+      .col-12.col-md-2.align-self-md-end
+        button.btn.btn-dark.shadow-none.w-100.addBtn(type="submit") 新增
+  .table-responsive.rounded.border.border-3.border-light.mt-4.p-3
+    table.table.table-borderless.mb-0.productList
+      thead
+        tr
+          th(width="30%") 產品名稱
+          th(width="15%") 原價
+          th(width="15%") 售價
+          th(width="25%") 是否啟用
+          th(width="15%") 刪除
+      tbody
+        //- tr
+        //-   td(width='30%') 產品
+        //-   td(width='15%') $ 200
+        //-   td(width='15%') $ 150
+        //-   td(width='25%')
+        //-     .form-check.form-switch
+        //-       input.form-check-input.custom-control-input#1620786267145(type="checkbox")
+        //-       label.form-check-label(for="1620786267145") 未啟用
+        //-   td(width='15%')
+        //-     button.btn.btn-sm.btn-outline-dark.shadow-none(type="button") X
+      tfoot.text-muted.border-top
+        td(colspan="4")
+          p.m-0.total 目前有 0 項產品
+        td
+          button.btn.btn-sm.btn-outline-danger.shadow-none.deleteAllBtn 刪除全部
