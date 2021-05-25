@@ -1,0 +1,114 @@
+@charset "UTF-8";
+@keyframes blink {
+  0%, 30%, 40% {
+    opacity: 0;
+  }
+  15%, 35% {
+    opacity: 1;
+  }
+}
+@keyframes slide-down {
+  0% {
+    transform: translateY(-80%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=email]:focus,
+input[type=password]:focus {
+  border-color: white;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  font-family: "Noto Sans TC", sans-serif, "微軟正黑體";
+  background: #3e588f;
+}
+
+.form-check-input:checked {
+  background-color: black;
+  border-color: gray;
+}
+
+.form-switch .form-check-input {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='black'/%3e%3c/svg%3e");
+}
+
+.form-switch .form-check-input:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='gray'/%3e%3c/svg%3e");
+  border-color: gray;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.list {
+  min-width: 520px;
+  position: relative;
+  animation: slide-down 0.8s;
+}
+.list:before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-width: 64px 64px 0 0;
+  border-style: solid;
+  border-color: lightgrey #3e588f;
+  border-top-left-radius: 0.25rem;
+  box-shadow: 0 0 5px #555;
+  transition: 0.5s ease-in-out;
+}
+.list:hover:before {
+  border-width: 0;
+}
+
+.loginContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  padding: 90px 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+}
+.loginContent input {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.loginContent input:focus {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.errArea, .loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 30px;
+}
+
+.errArea {
+  width: 100%;
+  text-align: right;
+}
+.errArea.show {
+  animation: blink 1s;
+}

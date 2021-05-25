@@ -1,0 +1,45 @@
+section.container.login
+  .row.justify-content-center
+    .col-12.col-sm-8
+      .text-center.loginContent
+        .loading.d-none
+          i.fas.fa-circle-notch.fa-spin.h4.text-warning
+        .text-warning.errArea.d-none
+          i.fas.fa-exclamation-triangle.me-2
+          span.errMsg
+        h2.text-light Sign in
+        form#form.py-3.mt-3
+          .form-floating
+            input#username.form-control.shadow-none(type="email" placeholder='Email address' required autofocus)
+            label(for="username") Email address
+          .form-floating
+            input#password.form-control.shadow-none.mt-3(type='password' placeholder='Password' required)
+            label(for='password') Password
+          button.btn.btn-lg.btn-outline-light.mt-4.w-100(type='submit') Login
+        
+section.container.p-4.my-5.bg-white.rounded.list.d-none
+  .d-flex.justify-content-center
+    h2.p-2.text-center.border-bottom.w-50 產品列表
+  .table-responsive.mt-3.p-3
+    table.table.table-borderless.table-striped.mb-0.productList
+      thead
+        tr
+          th(width="30%") 產品名稱
+          th(width="15%") 原價
+          th(width="15%") 售價
+          th(width="25%") 是否啟用
+          th(width="15%") 刪除
+      tbody
+        //- tr
+        //-   td(width='30%') 產品
+        //-   td(width='15%') $ 200
+        //-   td(width='15%') $ 150
+        //-   td(width='25%')
+        //-     .form-check.form-switch
+        //-       input.form-check-input.custom-control-input#1620786267145(type="checkbox")
+        //-       label.form-check-label(for="1620786267145") 未啟用
+        //-   td(width='15%')
+        //-     button.btn.btn-sm.btn-outline-dark.shadow-none(type="button") X
+      tfoot.text-muted.border-top
+        td(colspan="4")
+          p.m-0.total 目前有 0 項產品
