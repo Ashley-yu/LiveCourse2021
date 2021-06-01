@@ -28,7 +28,7 @@ createApp({
         productModal.show();
       } else if (modal === 'edit') {
         this.isNew = false;
-        this.tempProduct = { ...item };
+        this.tempProduct = JSON.parse(JSON.stringify(item));
         productModal.show();
       } else {
         this.tempProduct = { ...item };
