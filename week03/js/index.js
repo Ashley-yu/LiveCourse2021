@@ -94,15 +94,13 @@ createApp({
     },
     logout() {
       const url = `${this.apiUrl}/logout`;
-      console.log(url)
       axios.post(url).then(res => {
         if (res.data.success) {
-          console.log(res)
           document.cookie = `hexToken=;expires=; path=/`;
           window.location = "login.html";
         }
       }).catch( err => {
-        console.log(err);
+        alert(err);
       });
     },
     setModal() {
