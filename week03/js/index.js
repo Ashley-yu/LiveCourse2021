@@ -22,6 +22,9 @@ createApp({
     showModal(modal, item) {
       if (modal === 'new') {
         this.isNew = true;
+        this.tempProduct = {
+          imagesUrl: [],
+        };
         productModal.show();
       } else if (modal === 'edit') {
         this.isNew = false;
@@ -110,12 +113,6 @@ createApp({
 
       delProductModal = new bootstrap.Modal(document.getElementById('delProductModal'), {
         keyboard: false
-      });
-
-      document.getElementById('productModal').addEventListener('hidden.bs.modal', () => {
-        this.tempProduct = {
-          imagesUrl: [],
-        }
       });
     },
     setToken() {
