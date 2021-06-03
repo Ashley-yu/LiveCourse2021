@@ -31,3 +31,25 @@
     - 使用於事件, 可簡寫為 @
   - v-for
     - 可用於物件及陣列, 需加 key
+
+## 第四週 - Vue 元件
+[Vue Js](https://ashley-yu.github.io/LiveCourse2021/week04/login.html)
+- 元件註冊
+  - 全域註冊
+  - 區域註冊 (import)
+- 模板運用
+  - Template Literial
+  - x-template type=“text/x-template”
+  - Vue Cli Vue file
+- 元件資料建構方式
+  - function return
+- HTML 上的運用方式
+  - 標籤
+  - v-is 屬性（動態屬性）
+- [元件命名規則](https://vue3js.cn/docs/zh/guide/component-registration.html#组件注册)
+- 元件資料傳遞
+  - 上到下：prop
+  - 下到上：$emit
+  - 口訣：HTML 前內，後外
+- [元件生命週期](https://vue3js.cn/docs/zh/guide/instance.html#生命周期图示)
+
