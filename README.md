@@ -52,4 +52,20 @@
   - 下到上：$emit
   - 口訣：HTML 前內，後外
 - [元件生命週期](https://vue3js.cn/docs/zh/guide/instance.html#生命周期图示)
+- mitt
+	 ```
+    // 匯入 mitt 的元件並調用它
+	  const emitter = mitt();
+	 ```
+	 ```
+    // 元件A 推送資料至另一個元件B
+	  emitter.emit('getData', this.text);
+	 ```
+	 ```
+    // 元件B 接收來自於元件A的資料
+	  emitter.on('getData', (msg) => {
+      this.text = msg;
+    });
+	 ```
+
 
