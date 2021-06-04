@@ -64,8 +64,8 @@
 	 ```
     // 元件B 接收來自於元件A的資料
 	  emitter.on('getData', (msg) => {
-      this.text = msg;
-    });
+	    this.text = msg;
+	  });
 	 ```
 
 
