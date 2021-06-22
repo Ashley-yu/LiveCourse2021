@@ -69,7 +69,7 @@
 	 ```
 
 ## 第五週 - Vue JS 進階方法
-[Vue Js 進階語法](https://ashley-yu.github.io/LiveCourse2021/week05/login.html)
+[Vue Js 進階語法](https://ashley-yu.github.io/LiveCourse2021/week05/index.html)
 
 - [VeeValidation](https://hackmd.io/FFv0a5cBToOATP7uI5COMQ)
 
