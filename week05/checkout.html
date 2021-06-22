@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 5 - 進階語法</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="./css/all.min.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Loading -->
+    <loading :is-show="isLoading"></loading>
+    <!-- main -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-7">
+          <div class="container mt-5">
+            <h2 class="my-3">Contact information</h2>
+            <v-form v-slot="{ errors }" ref="form" @submit="createOrder">
+              <div class="mb-3">
+                <label for="name" class="form-label">
+                  Full Name
+                  <abbr title="required" class="text-danger text-decoration-none">*</abbr>
+                </label>
+                <v-field type="text" class="form-control" id="name" name="Name"
+                         :class="{ 'is-invalid': errors['Name'] }"
+                  rules="required" v-model="order.user.name">
+                </v-field>
+                <error-message name="Name" class="invalid-feedback"></error-message>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">
+                  Email Address
+                  <abbr title="required" class="text-danger text-decoration-none">*</abbr>
+                </label>
+                <v-field type="email" class="form-control" id="email" name="Email"
+                         :class="{ 'is-invalid': errors['Email'] }" rules="required|email" v-model="order.user.email">
+                </v-field>
+                <error-message name="Email" class="invalid-feedback"></error-message>
+                <div class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">
+                  Phone
+                <abbr title="required" class="text-danger text-decoration-none">*</abbr>
+                </label>
+                <v-field type="tel" class="form-control" id="phone" name="Phone"
+                         :class="{ 'is-invalid': errors['Phone'] }" :rules="isPhone" v-model="order.user.tel">
+                </v-field>
+                <error-message name="Phone" class="invalid-feedback"></error-message>
+              </div>
+              <div class="mb-3">
+                <label for="address" class="form-label">
+                  Address
+                <abbr title="required" class="text-danger text-decoration-none">*</abbr>
+                </label>
+                <v-field type="text" class="form-control" id="address" name="Address"
+                         :class="{ 'is-invalid': errors['Address'] }" rules="required" v-model="order.user.address">
+                </v-field>
+                <error-message name="Address" class="invalid-feedback"></error-message>
+              </div>
+              <div class="mb-3">
+                <label for="note" class="form-label">Order Notes (optional)</label>
+                <textarea placeholder="Notes about your order, e.g. special notes for delivery."
+                          type="text" class="form-control" id="note" rows="5"
+                          vmodel="order.message"
+                          ></textarea>
+              </div>
+              <button type="submit" class="btn btn-lg btn-dark w-100"
+                      :disabled="Object.keys(errors).length !== 0">
+                Confirm
+              </button>
+            </v-form>
+          </div>
+        </div>
+        <div class="col-sm-5 border-start side">
+          <ul class="list-group mt-5">
+            <li class="list-group-item bg-transparent border-0 border-bottom p-3" v-for="item in cartData.carts" :key="item.product_id">
+              <div class="row">
+                <div class="col-4 col-sm-12 col-md-4">
+                  <img class="cart-img" :src="item.product.imageUrl" :alt="item.product.title">
+                </div>
+                <div class="col-8 col-sm-12 col-md-8">
+                  <div class="mt-3 mt-md-0 d-flex justify-content-between align-items-center mb-1">
+                    <h5>{{ item.product.title }}</h5>
+                    <span class="badge bg-warning rounded-pill">
+                      {{ item.qty }}
+                    </span>
+                  </div>
+                  <p class="m-0 mb-1">{{ currency(item.product.price) }}</p>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item bg-transparent border-0 p-3">
+              <div class="row">
+                <div class="col-4">
+                  <p>
+                    Total:
+                  </p>
+                </div>
+                <div class="col-5">
+                  <div class="mb-1">
+                    <p class="fw-bold">{{ currency(finalTotal) }}</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vee-validate/4.1.17/vee-validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@vee-validate/i18n@4.1.17/dist/vee-validate-i18n.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@vee-validate/rules@4.1.17/dist/vee-validate-rules.min.js"></script>
+  <script type="module" src="./js/index.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+.card-img-top {
+  height: 150px;
+  object-fit: cover;
+  object-position: center center;
+  position: relative;
+}
+
+.card-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: $primary-color;
+  color: #fff;
+}
+
+.card-option {
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  opacity: 0;
+  transition: .5s ease-in-out;
+}
+
+.card {
+  cursor: pointer;
+
+  &:hover {
+    .card-option {
+      opacity: 1;
+    }
+  }
+}

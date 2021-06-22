@@ -1,0 +1,23 @@
+.page-item {
+  margin: 0 4px;
+  box-shadow: none;
+
+  &.active {
+    .page-link {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.page-link {
+  color: black;
+  border: none;
+  border-radius: 0.25rem;
+
+  &:hover,
+  &:focus {
+    color: black;
+    box-shadow: none;
+    background-color: lighten($primary-color, 30%);
+  }
+}
